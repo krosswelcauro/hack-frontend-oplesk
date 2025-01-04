@@ -12,7 +12,7 @@ export function User() {
     useEffect(() => {
         if (userId) {
             // Obtener usuario por su id si existe
-            axios.get(`http://ec2-3-129-21-23.us-east-2.compute.amazonaws.com:5000/user/${userId}`)
+            axios.get(`http://ec2-3-149-250-120.us-east-2.compute.amazonaws.com:5000/user/${userId}`)
             .then(response => setUser(response.data))
             .catch(error => console.error("Error al obtener el usuario", error))
         }
@@ -21,7 +21,7 @@ export function User() {
     const handleSubmit = (values) => {
         if (user) {
             // Actualizamos usuario
-            axios.patch(`http://ec2-3-129-21-23.us-east-2.compute.amazonaws.com:5000/update-user/${userId}`, values)
+            axios.patch(`http://ec2-3-149-250-120.us-east-2.compute.amazonaws.com:5000/update-user/${userId}`, values)
                 .then(() => {
                     alert("Usuario actualizado correctamente")
                     navigate('/users')
@@ -29,7 +29,7 @@ export function User() {
                 .catch(error => console.error("Error al actualizar el usuario", error))
         } else {
             // Creamos usuario
-            axios.post(`http://ec2-3-129-21-23.us-east-2.compute.amazonaws.com:5000/create-user`, values)
+            axios.post(`http://ec2-3-149-250-120.us-east-2.compute.amazonaws.com:5000/create-user`, values)
                 .then(() => {
                     alert("Usuario creado correctamente")
                     navigate('/users')

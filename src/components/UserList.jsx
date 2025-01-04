@@ -13,7 +13,7 @@ export function UserList() {
         const axiosUsers = async () => {
             try {
                 setLoading(true)
-                const users = await axios.get('http://ec2-3-129-21-23.us-east-2.compute.amazonaws.com:5000/users')
+                const users = await axios.get('http://ec2-3-149-250-120.us-east-2.compute.amazonaws.com:5000/users')
                 // console.log(users.data.data);
                 setUsers(users.data.data)
             } catch (error) {
@@ -28,7 +28,7 @@ export function UserList() {
     const handleDelete = async (user) => {
         if(window.confirm("Quieres eliminar este usuario?")) {
             try {
-                axios.delete(`http://ec2-3-129-21-23.us-east-2.compute.amazonaws.com:5000/delete-user/${user.id}`)
+                axios.delete(`http://ec2-3-149-250-120.us-east-2.compute.amazonaws.com:5000/delete-user/${user.id}`)
                 setUsers(users.filter(u => u.id !== user.id))
             } catch (error) {
                 setError(error.message)
